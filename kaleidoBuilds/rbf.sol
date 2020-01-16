@@ -66,11 +66,13 @@ contract RBF {
     }
 
     function getFacilities(uint _startIndex, uint _count) public view returns(string memory) {
+       //init
         string memory ret = "";
+        
         if (Facilities.length > 0) {
             ret = Facilities[_startIndex];
             uint _itemsNum = 0;
-            _startIndex = _startIndex + 1;
+            _startIndex = _st/artIndex + 1;
             if (_count <= Facilities.length)
                 _itemsNum = _count;
             else
