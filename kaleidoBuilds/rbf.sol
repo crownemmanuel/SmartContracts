@@ -1,4 +1,4 @@
-pragma solidity >= 0.4 .22 < 0.6 .0; //0.4.26+commit
+pragma solidity ^0.4.22 ;
 
 contract RBF {
 
