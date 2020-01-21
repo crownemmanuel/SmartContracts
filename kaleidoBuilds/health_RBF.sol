@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0 ;
+pragma solidity ^0.4.23 ;
 
 contract healthRBF {
 
@@ -28,11 +28,11 @@ contract healthRBF {
     }
 
    
-  function getDataStore(uint _startIndex, uint _count) public  returns(string memory) {
+  function getDataStore(uint _startIndex, uint _count) public view returns(string memory) {
         //init
         string memory ret = "";
         
-        if (DataStore.length > 0) {
+        if (DataStore.length > 0 && _startIndex <= DataStore.length) {
             ret = DataStore[_startIndex];
             uint _itemsNum = 0;
             _startIndex = _startIndex + 1;
@@ -40,9 +40,9 @@ contract healthRBF {
                 _itemsNum = _count;
             else
                 _itemsNum = DataStore.length;
-            if (_startIndex < DataStore.length) {
+            if (_startIndex <= DataStore.length) {
                 for (uint i = _startIndex; i < _itemsNum; i++) {
-                    ret = strConcat(ret, ",", DataStore[i], "", "");
+                    ret = strConcat(ret, "|", DataStore[i], "", "");
                 }
             }
         }
@@ -69,10 +69,10 @@ contract healthRBF {
         
         uint k = 0;
         for (uint i = 0; i < _ba.length; i++) babcde[k++] = _ba[i];
-        for (uint i = 0; i < _bb.length; i++) babcde[k++] = _bb[i];
-        for (uint i = 0; i < _bc.length; i++) babcde[k++] = _bc[i];
-        for (uint i = 0; i < _bd.length; i++) babcde[k++] = _bd[i];
-        for (uint i = 0; i < _be.length; i++) babcde[k++] = _be[i];
+        for ( i = 0; i < _bb.length; i++) babcde[k++] = _bb[i];
+        for ( i = 0; i < _bc.length; i++) babcde[k++] = _bc[i];
+        for ( i = 0; i < _bd.length; i++) babcde[k++] = _bd[i];
+        for ( i = 0; i < _be.length; i++) babcde[k++] = _be[i];
         return string(babcde);
     }
 
